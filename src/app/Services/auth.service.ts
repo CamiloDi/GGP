@@ -1,5 +1,3 @@
-// src/app/auth/auth.service.ts
-
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
@@ -12,27 +10,31 @@ export class AuthService {
   public userProfile: any;
 
   auth0 = new auth0.WebAuth({
-    clientID: 'M1maxDBxG18ZKBhyjhUpLKOSlhBd5LrJ',
+    clientID: 'NmHj8xfpJJzz0GHbNccrytqDQcj22n2Q',
     domain: 'cursoudemydevelop.auth0.com',
     responseType: 'token id_token',
     audience: 'https://cursoudemydevelop.auth0.com/userinfo',
-    redirectUri: 'http://localhost:4200/callback',
+    redirectUri: 'http://localhost:3000/callback',
     scope: 'openid profile'
   });
 
-  constructor(public router: Router) { }
+  constructor(public router: Router) {}
+
+
 
   public login(): void {
     this.auth0.authorize();
+    sessionStorage.setItem('sesionvalida', 'true');
   }
+  
   public handleAuthentication(): void {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         window.location.hash = '';
         this.setSession(authResult);
-        this.router.navigate(['/home']);
+        this.router.navigate(['/gastofijos']);
       } else if (err) {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/gastosfijos']);
         console.log(err);
       }
     });
@@ -52,7 +54,8 @@ export class AuthService {
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
     // Go back to the home route
-    this.router.navigate(['/']);
+    this.router.navigate(['/home']);
+    sessionStorage.removeItem('sesionvalida');
   }
 
   public isAuthenticated(): boolean {
@@ -61,12 +64,13 @@ export class AuthService {
     const expiresAt = JSON.parse(localStorage.getItem('expires_at') || '{}');
     return new Date().getTime() < expiresAt;
   }
+
   public getProfile(cb): void {
     const accessToken = localStorage.getItem('access_token');
     if (!accessToken) {
       throw new Error('Access Token must exist to fetch profile');
     }
-
+  
     const self = this;
     this.auth0.client.userInfo(accessToken, (err, profile) => {
       if (profile) {
@@ -75,4 +79,5 @@ export class AuthService {
       cb(err, profile);
     });
   }
+
 }

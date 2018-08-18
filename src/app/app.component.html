@@ -1,5 +1,4 @@
-<app-sesion></app-sesion>
-<app-datos-generales></app-datos-generales>
-<app-tabs></app-tabs>
+<app-menu-superior></app-menu-superior>
+<app-tabs *ngIf="auth.isAuthenticated()"></app-tabs>
 
-<router-outlet></router-outlet>
+<router-outlet *ngIf="auth.isAuthenticated()"></router-outlet>
