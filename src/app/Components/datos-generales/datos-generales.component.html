@@ -1,1 +1,15 @@
-<h1 class="text-center">{{today | fechalocal:'es-CL':'MMMM'}}</h1>
+<div class="alert alert-danger" role="alert">
+    Total de Gastos: <strong>${{gastosTotal}} 0.000.000</strong>
+  </div>
+  <div class="alert alert-success" role="alert">
+    Total de Excedente: <strong>${{excedenteTotal}} 0.000.000</strong>
+  </div>
+  
+  
+<h1 class="text-center">Gastos {{today | fechalocal:'es-CL':'MMMM'}}</h1>
+<div class="mx-auto" style="width: 200px;">
+<div class="btn-group" role="group" aria-label="Basic example">
+    <button type="button" class="btn btn-light"><i class="material-icons" >keyboard_arrow_left</i></button>
+    <button type="button" class="btn btn-secondary disabled" disabled="disabled" ></button>
+    <button type="button" class="btn btn-light"><i class="material-icons" >keyboard_arrow_right</i></button>
+  </div></div>

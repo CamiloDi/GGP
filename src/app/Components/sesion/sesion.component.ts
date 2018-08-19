@@ -35,7 +35,9 @@ export class SesionComponent implements OnInit {
   login() {
     this.auth.login();
   }
-
+  opciones() {
+   alert('le diste click a opciones');
+  }
 
 }
 

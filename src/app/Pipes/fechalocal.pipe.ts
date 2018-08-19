@@ -4,7 +4,7 @@ import { DatePipe } from '@angular/common';
 @Pipe({name: 'fechalocal'})
 export class FechaLocalPipe implements PipeTransform {
   constructor(){}
-  transform(value: string, locale: string, pattern: string): number {
+  transform(value: string, locale: string, pattern: string): string {
 
     return this.mayus(new DatePipe(locale).transform(value, pattern));
 
