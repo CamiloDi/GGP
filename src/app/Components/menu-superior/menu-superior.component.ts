@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 
+
 @Component({
   selector: 'app-menu-superior',
   templateUrl: './menu-superior.component.html',
@@ -8,17 +9,14 @@ import { AuthService } from '../../services/auth.service';
 })
 export class MenuSuperiorComponent implements OnInit {
 
+  public valida:any;
   
-  constructor(private auth: AuthService) {
-    
+  constructor(public auth: AuthService) {
+    //auth.handleAuthentication();
   }
 
   ngOnInit() {
-    if (!sessionStorage.sesionvalida) {
-      this.auth.login();
-    }
-    
-    
+    this.valida=(sessionStorage.sesionvalida=='true');
   }
 
 }

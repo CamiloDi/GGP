@@ -13,4 +13,16 @@ export class DatosGeneralesComponent implements OnInit {
   ngOnInit() {
   }
 
+  disminuirMes(){
+    
+    let mesActual: Date= new Date(this.today);
+    mesActual.setMonth(mesActual.getMonth()-1);
+    this.today=mesActual.getTime();
+    
+  }
+  aumentarMes(){
+    let mesActual: Date= new Date(this.today);
+    mesActual.setMonth(mesActual.getMonth()+1);
+    this.today=mesActual.getTime();
+  }
 }

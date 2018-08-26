@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GastosFijosComponent implements OnInit {
 
+  fecha:Date=new Date();
+  claseFila:string='table-danger';
   constructor() { }
 
   ngOnInit() {
+  }
+
+  Pagar(variable){
+    var el = (document.getElementById('fila1')) as HTMLTableRowElement;
+    console.log(variable);
+    el.className='table-success';
+    //this.claseFila='table-success';
+  }
+
+  PagarTodo(){
+      this.claseFila='table-success';
+
   }
 
 }

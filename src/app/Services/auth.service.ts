@@ -8,13 +8,14 @@ import * as auth0 from 'auth0-js';
 @Injectable()
 export class AuthService {
   public userProfile: any;
+  public pregunta:number=0;
 
   auth0 = new auth0.WebAuth({
     clientID: 'NmHj8xfpJJzz0GHbNccrytqDQcj22n2Q',
     domain: 'cursoudemydevelop.auth0.com',
     responseType: 'token id_token',
     audience: 'https://cursoudemydevelop.auth0.com/userinfo',
-    redirectUri: 'http://localhost:3000/callback',
+    redirectUri: 'http://localhost:4200/callback',
     scope: 'openid profile'
   });
 
@@ -24,50 +25,82 @@ export class AuthService {
 
   public login(): void {
     this.auth0.authorize();
-    sessionStorage.setItem('sesionvalida', 'true');
+    
+    
   }
   
   public handleAuthentication(): void {
     this.auth0.parseHash((err, authResult) => {
-      if (authResult && authResult.accessToken && authResult.idToken) {
+      //console.log('authResult');
+      //console.log(authResult);
+      
+      if (authResult&& authResult.accessToken && authResult.idToken) {
         window.location.hash = '';
         this.setSession(authResult);
         this.router.navigate(['/gastofijos']);
       } else if (err) {
-        this.router.navigate(['/gastosfijos']);
-        console.log(err);
+        this.router.navigate(['/gastofijos']);
+        console.error(`Error: ${err.error}`);
       }
     });
   }
+  /*
+  public handleAuthentication(): void {
+    this.auth0.parseHash({ _idTokenVerification: false }, (err, authResult) => {
+      if (authResult && authResult.accessToken && authResult.idToken) {
+        console.log('llegue al nuevo metodo');
+        window.location.hash = '';
+        sessionStorage.setItem('access_token', authResult.accessToken);
+        sessionStorage.setItem('id_token', authResult.idToken);
+        const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
+        sessionStorage.setItem('expires_at', expiresAt);
+        sessionStorage.setItem('sesionvalida', 'true');
+        this.router.navigate(['/gastofijos']);
+      } else if (err && err != null) {
+        console.error('Error: ' + err);
+      }
+    });
+  }*/
+
 
   private setSession(authResult): void {
     // Set the time that the Access Token will expire at
     const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
-    localStorage.setItem('access_token', authResult.accessToken);
-    localStorage.setItem('id_token', authResult.idToken);
-    localStorage.setItem('expires_at', expiresAt);
+    sessionStorage.setItem('access_token', authResult.accessToken);
+    sessionStorage.setItem('id_token', authResult.idToken);
+    sessionStorage.setItem('expires_at', expiresAt);
+    
   }
 
   public logout(): void {
-    // Remove tokens and expiry time from localStorage
-    localStorage.removeItem('access_token');
-    localStorage.removeItem('id_token');
-    localStorage.removeItem('expires_at');
-    // Go back to the home route
-    this.router.navigate(['/home']);
+    // Remove tokens and expiry time from sessionStorage
+    sessionStorage.removeItem('access_token');
+    sessionStorage.removeItem('id_token');
+    sessionStorage.removeItem('expires_at');
     sessionStorage.removeItem('sesionvalida');
+    //sessionStorage.clear();
+    // Go back to the home route
+    this.router.navigate(['/']);
+    
   }
 
   public isAuthenticated(): boolean {
     // Check whether the current time is past the
     // Access Token's expiry time
-    const expiresAt = JSON.parse(localStorage.getItem('expires_at') || '{}');
+    const expiresAt = JSON.parse(sessionStorage.getItem('expires_at') || '{}');
+   /* if(this.pregunta==0){
+      console.log('esta logueado?-isAuthenticated-service');
+      console.log(new Date().getTime() < expiresAt);
+      this.pregunta++;
+    }*/
+    
     return new Date().getTime() < expiresAt;
   }
 
   public getProfile(cb): void {
-    const accessToken = localStorage.getItem('access_token');
+    const accessToken = sessionStorage.getItem('access_token');
     if (!accessToken) {
+
       throw new Error('Access Token must exist to fetch profile');
     }
   
@@ -79,5 +112,6 @@ export class AuthService {
       cb(err, profile);
     });
   }
+
 
 }

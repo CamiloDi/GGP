@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { LOCALE_ID } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 import localES from '@angular/common/locales/es'
 registerLocaleData(localES);
 
@@ -21,8 +23,8 @@ import { GastosFijosComponent } from './Components/gastos-fijos/gastos-fijos.com
 import { HomeComponent } from './Components/home/home.component';
 import { DatosGeneralesComponent } from './Components/datos-generales/datos-generales.component';
 import { MenuSuperiorComponent } from './components/menu-superior/menu-superior.component';
-import { ErrorComponent } from './components/error/error.component';
 import { registerLocaleData } from '../../node_modules/@angular/common';
+import { ProblemaComponent } from './Components/problema/problema.component';
 
 @NgModule({
   declarations: [
@@ -35,10 +37,12 @@ import { registerLocaleData } from '../../node_modules/@angular/common';
     MenuSuperiorComponent,
     SinfotoPipe,
     FechaLocalPipe,
-    ErrorComponent
+    ProblemaComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    HttpModule,
     app_routing
     
   ],

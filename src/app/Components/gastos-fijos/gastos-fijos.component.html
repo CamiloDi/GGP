@@ -1,1 +1,206 @@
-<a class="btn btn-outline-success btn-circle-sm" tabindex="-1" role="button"><i class="material-icons" >add_circle</i></a>
+<div class="main-container">
+    <a class="btn btn-outline-success btn-circle-sm" tabindex="-1" role="button">
+        <i class="material-icons">add_circle</i>
+    </a>
+</div>
+<div class="container table-responsive">
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+           <tr >
+                <th class="text-center">Ver Detalle</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Valor ($)</th>
+                <th scope="col"><div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Qué Desea Hacer?
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" (click)="PagarTodo();">Pagar Todo</a>
+                            <a class="dropdown-item" href="">Borrar Todo</a>
+                        </div>
+                    </div></th>
+            </tr>
+        </thead>
+        <tbody>
+           <tr id="fila1" [ngClass]="claseFila">
+                <th class="text-center">
+                    <i class="material-icons">search</i>
+                </th>
+                <td>Arriendo</td>
+                <td>{{fecha}}</td>
+                <td>$000.000</td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Qué Desea Hacer?
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item"  (click)="Pagar();">Pagar</a>
+                            <a class="dropdown-item" href="">Editar</a>
+                            <a class="dropdown-item" href="">Borrar</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+          <tr id="fila2" [ngClass]="claseFila">
+                <th class="text-center">
+                    <i class="material-icons">search</i>
+                </th>
+                <td>Gas</td>
+                <td>{{fecha}}</td>
+                <td>$00.000</td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Qué Desea Hacer?
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item"  (click)="Pagar();">Pagar</a>
+                            <a class="dropdown-item" href="">Editar</a>
+                            <a class="dropdown-item" href="">Borrar</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+          <tr id="fila3" [ngClass]="claseFila">
+                <th class="text-center">
+                    <i class="material-icons">search</i>
+                </th>
+                <td>Agua</td>
+                <td>{{fecha}}</td>
+                <td>$00.000</td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Qué Desea Hacer?
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item"  (click)="Pagar();">Pagar</a>
+                            <a class="dropdown-item" href="">Editar</a>
+                            <a class="dropdown-item" href="">Borrar</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+          <tr id="fila4" [ngClass]="claseFila">
+                <th class="text-center">
+                    <i class="material-icons">search</i>
+                </th>
+                <td>Arriendo</td>
+                <td>{{fecha}}</td>
+                <td>$000.000</td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false"> Qué Desea Hacer? </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item"  (click)="Pagar();">Pagar</a>
+                            <a class="dropdown-item" href="">Editar</a>
+                            <a class="dropdown-item" href="">Borrar</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+          <tr id="fila5" [ngClass]="claseFila">
+                <th class="text-center">
+                    <i class="material-icons">search</i>
+                </th>
+                <td>Gas</td>
+                <td>{{fecha}}</td>
+                <td>$00.000</td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false"> Qué Desea Hacer? </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item"  (click)="Pagar();">Pagar</a>
+                            <a class="dropdown-item" href="">Editar</a>
+                            <a class="dropdown-item" href="">Borrar</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+          <tr id="fila6" [ngClass]="claseFila">
+                <th class="text-center">
+                    <i class="material-icons">search</i>
+                </th>
+                <td>Agua</td>
+                <td>{{fecha}}</td>
+                <td>$00.000</td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false"> Qué Desea Hacer? </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item"  (click)="Pagar();">Pagar</a>
+                            <a class="dropdown-item" href="">Editar</a>
+                            <a class="dropdown-item" href="">Borrar</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+          <tr id="fila7" [ngClass]="claseFila">
+                <th class="text-center">
+                    <i class="material-icons">search</i>
+                </th>
+                <td>Arriendo</td>
+                <td>{{fecha}}</td>
+                <td>$000.000</td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false"> Qué Desea Hacer? </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item"  (click)="Pagar();">Pagar</a>
+                            <a class="dropdown-item" href="">Editar</a>
+                            <a class="dropdown-item" href="">Borrar</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+          <tr id="fila8" [ngClass]="claseFila">
+                <th class="text-center">
+                    <i class="material-icons">search</i>
+                </th>
+                <td>Gas</td>
+                <td>{{fecha}}</td>
+                <td>$00.000</td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false"> Qué Desea Hacer? </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item"  (click)="Pagar();">Pagar</a>
+                            <a class="dropdown-item" href="">Editar</a>
+                            <a class="dropdown-item" href="">Borrar</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+          <tr id="fila9" [ngClass]="claseFila">
+                <th class="text-center">
+                    <i class="material-icons">search</i>
+                </th>
+                <td>Agua</td>
+                <td>{{fecha}}</td>
+                <td>$00.000</td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false"> Qué Desea Hacer? </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item"  (click)="Pagar();">Pagar</a>
+                            <a class="dropdown-item" href="">Editar</a>
+                            <a class="dropdown-item" href="">Borrar</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

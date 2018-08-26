@@ -9,7 +9,7 @@
 <h1 class="text-center">Gastos {{today | fechalocal:'es-CL':'MMMM'}}</h1>
 <div class="mx-auto" style="width: 200px;">
 <div class="btn-group" role="group" aria-label="Basic example">
-    <button type="button" class="btn btn-light"><i class="material-icons" >keyboard_arrow_left</i></button>
+    <button type="button" class="btn btn-light" (click)="disminuirMes()"><i class="material-icons" >keyboard_arrow_left</i></button>
     <button type="button" class="btn btn-secondary disabled" disabled="disabled" ></button>
-    <button type="button" class="btn btn-light"><i class="material-icons" >keyboard_arrow_right</i></button>
+    <button type="button" class="btn btn-light" (click)="aumentarMes()"><i class="material-icons" >keyboard_arrow_right</i></button>
   </div></div>

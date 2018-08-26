@@ -1,3 +1,7 @@
-<p>
-  home works!
-</p>
+<app-menu-superior></app-menu-superior>
+
+<app-tabs *ngIf="auth.isAuthenticated()"></app-tabs>
+
+<router-outlet *ngIf="auth.isAuthenticated()"></router-outlet>
+
+<h1 *ngIf="!auth.isAuthenticated()">Ud. no esta logueado</h1>
