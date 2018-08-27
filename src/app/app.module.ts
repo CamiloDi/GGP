@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { LOCALE_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule  } from '@angular/common/http';
 import localES from '@angular/common/locales/es'
 registerLocaleData(localES);
 
@@ -15,6 +16,7 @@ import { FechaLocalPipe } from './pipes/fechalocal.pipe';
 //Services
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
+import { GastosFijosService } from './services/gastosFijos.service';
 
 import { AppComponent } from './app.component';
 import { SesionComponent } from './Components/sesion/sesion.component';
@@ -43,10 +45,11 @@ import { ProblemaComponent } from './Components/problema/problema.component';
     BrowserModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     app_routing
     
   ],
-  providers: [AuthService,AuthGuardService,{provide: LOCALE_ID, useValue: 'es-CL'}],
+  providers: [AuthService,AuthGuardService,GastosFijosService,{provide: LOCALE_ID, useValue: 'es-CL'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
