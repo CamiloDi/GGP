@@ -16,3 +16,4 @@ export class GastosFijosService {
         (error: Response) => {
         return Observable.throw(error);
     });
+    }

@@ -20,16 +20,33 @@ export class GastosFijosComponent implements OnInit {
     });
   }
 
-  Pagar(variable){
-    var el = (document.getElementById('fila1')) as HTMLTableRowElement;
-    console.log(variable);
-    el.className='table-success';
-    //this.claseFila='table-success';
+  Pagar(gasto){
+    var el = (document.getElementById(gasto.id+'')) as HTMLTableRowElement;
+    console.log(el);
+    gasto.pagado=true;
   }
 
-  PagarTodo(){
-      this.claseFila='table-success';
-
+  PagarTodo(Gastos){
+    Gastos.forEach(gasto => {
+      gasto.pagado=true;
+    });
   }
+  clasePagado(pagado){
+    if(pagado){
+      return 'table-success';
+    }else{
+      return 'table-danger';
+    }
+  }
+    claseDesabilitado(pagado){
+      if(pagado){
+      return 'dropdown-item disabled';
+    }else{
+      return 'dropdown-item';
+    }
+
+    }
+
+  
 
 }

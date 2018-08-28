@@ -17,19 +17,19 @@
                             Qué Desea Hacer?
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" (click)="PagarTodo();">Pagar Todo</a>
+                            <a class="dropdown-item" (click)="PagarTodo(listaGastosFijos);">Pagar Todo</a>
                             <a class="dropdown-item" href="">Borrar Todo</a>
                         </div>
                     </div></th>
             </tr>
         </thead>
         <tbody>
-             <tr id="" [ngClass]="claseFila" *ngFor="let gastoFijo of listaGastosFijos">
+             <tr id="{{gastoFijo.id}}" [ngClass]="clasePagado(gastoFijo.pagado)" *ngFor="let gastoFijo of listaGastosFijos">
                 <th class="text-center">
                     <i class="material-icons">search</i>
                 </th>
                 <td>{{gastoFijo.nombre}}</td>
-                <td>{{gastoFijo.fecha}}</td>
+                <td>{{gastoFijo.fecha | date:'mediumDate'}}</td>
                 <td>${{gastoFijo.valor}}</td>
                 <td>
                     <div class="dropdown">
@@ -38,7 +38,7 @@
                             Qué Desea Hacer?
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item"  (click)="Pagar();">Pagar</a>
+                            <a [ngClass]="claseDesabilitado(gastoFijo.pagado)"  (click)="Pagar(gastoFijo);">Pagar</a>
                             <a class="dropdown-item" href="">Editar</a>
                             <a class="dropdown-item" href="">Borrar</a>
                         </div>
@@ -48,6 +48,3 @@
         </tbody>
     </table>
 </div>
-<pre>
-  {{this.listaGastosFijos | json}}
-</pre>
