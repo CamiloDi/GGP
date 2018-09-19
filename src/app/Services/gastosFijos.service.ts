@@ -5,15 +5,13 @@ import {Observable} from 'rxjs';
 
 @Injectable()
 export class GastosFijosService {
-  gastos:any;
+  gastosFijos:any;
 
   constructor(public http: HttpClient) {
     console.log('GastosFijos-Service is Ready!');
   }
-     getLista() {
-        return this.http.get('../../assets/data/gastosFijos.json');
-    }).catch(
-        (error: Response) => {
-        return Observable.throw(error);
-    });
-    }
+     getLista(){
+       this.gastosFijos=this.http.get('../../assets/data/gastosFijos.json');
+        return this.gastosFijos;
+     }
+  }

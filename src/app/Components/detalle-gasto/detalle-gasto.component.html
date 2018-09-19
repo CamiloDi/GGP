@@ -1,0 +1,15 @@
+ <div >
+  <div class="divBotonCerrar" align="right">
+      <a class="btn" (click)="closeModal()" role="button" >
+        <i class="material-icons">clear</i>
+      </a>
+  </div>
+ 
+</div> 
+<h2 class="text-center">Detalle Gasto {{data.gasto.nombre}}</h2>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">Nombre:</span>
+  </div>
+  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" readonly="readonly" value="{{data.gasto.nombre}}">
+</div>

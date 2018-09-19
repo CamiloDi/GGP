@@ -23,9 +23,9 @@ export class SesionComponent implements OnInit {
     //console.log(this.auth.isAuthenticated());
     setTimeout(()=>this.cargarPerfil(),1000);
   }
-  cargarPerfil() {
-    this.cargando=true;
+  cargarPerfil() {  
     if (this.auth.isAuthenticated()) {
+      this.cargando=true;
       this.saludo = 'Hola ';
       if (this.auth.userProfile) {
         this.profile = this.auth.userProfile;

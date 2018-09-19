@@ -3,63 +3,63 @@
     {
       "id": 1,
       "nombre": "Arriendo",
-      "fecha": "2018-08-03T00:00:00.000Z",
+      "fecha": "2018-09-03T00:00:00.000Z",
       "valor": 100000,
       "pagado": true
     },
     {
       "id": 2,
       "nombre": "Luz",
-      "fecha": "2018-08-03T00:00:00.000Z",
+      "fecha": "2018-09-03T00:00:00.000Z",
       "valor": 100000,
       "pagado": true
     },
     {
       "id": 3,
       "nombre": "Agua",
-      "fecha": "2018-08-03T00:00:00.000Z",
+      "fecha": "2018-09-03T00:00:00.000Z",
       "valor": 100000,
       "pagado": true
     },
     {
       "id": 4,
       "nombre": "Comida",
-      "fecha": "2018-08-03T00:00:00.000Z",
+      "fecha": "2018-09-03T00:00:00.000Z",
       "valor": 100000,
       "pagado": false
     },
     {
       "id": 5,
       "nombre": "Telefono",
-      "fecha": "2018-08-03T00:00:00.000Z",
+      "fecha": "2018-09-03T00:00:00.000Z",
       "valor": 100000,
       "pagado": false
     },
     {
       "id": 6,
       "nombre": "Gastos Comunes",
-      "fecha": "2018-08-03T00:00:00.000Z",
+      "fecha": "2018-09-03T00:00:00.000Z",
       "valor": 100000,
       "pagado": false
     },
     {
       "id": 7,
       "nombre": "Transporte",
-      "fecha": "2018-08-03T00:00:00.000Z",
+      "fecha": "2018-09-03T00:00:00.000Z",
       "valor": 100000,
       "pagado": false
     },
     {
       "id": 8,
       "nombre": "Tarjeta de Credito",
-      "fecha": "2018-08-03T00:00:00.000Z",
+      "fecha": "2018-09-03T00:00:00.000Z",
       "valor": 100000,
       "pagado": false
     },
     {
       "id": 9,
       "nombre": "CAE",
-      "fecha": "2018-08-03T00:00:00.000Z",
+      "fecha": "2018-09-03T00:00:00.000Z",
       "valor": 100000,
       "pagado": false
     }

@@ -6,6 +6,8 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule  } from '@angular/common/http';
 import localES from '@angular/common/locales/es'
 registerLocaleData(localES);
+import {MatDialogModule} from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { app_routing } from "./routes";
@@ -27,6 +29,7 @@ import { DatosGeneralesComponent } from './Components/datos-generales/datos-gene
 import { MenuSuperiorComponent } from './components/menu-superior/menu-superior.component';
 import { registerLocaleData } from '../../node_modules/@angular/common';
 import { ProblemaComponent } from './Components/problema/problema.component';
+import { DetalleGastoComponent } from './Components/detalle-gasto/detalle-gasto.component';
 
 @NgModule({
   declarations: [
@@ -39,14 +42,18 @@ import { ProblemaComponent } from './Components/problema/problema.component';
     MenuSuperiorComponent,
     SinfotoPipe,
     FechaLocalPipe,
-    ProblemaComponent
+    ProblemaComponent,
+    DetalleGastoComponent
   ],
+  entryComponents: [DetalleGastoComponent],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     HttpClientModule,
-    app_routing
+    app_routing,
+    MatDialogModule,
+    BrowserAnimationsModule
     
   ],
   providers: [AuthService,AuthGuardService,GastosFijosService,{provide: LOCALE_ID, useValue: 'es-CL'}],
