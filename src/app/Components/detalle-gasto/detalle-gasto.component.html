@@ -7,9 +7,72 @@
  
 </div> 
 <h2 class="text-center">Detalle Gasto {{data.gasto.nombre}}</h2>
-<div class="input-group mb-3">
+<!-- <div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="basic-addon1">Nombre:</span>
   </div>
-  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" readonly="readonly" value="{{data.gasto.nombre}}">
+  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" >
+</div> -->
+<hr/>
+<div class="row">
+  <div class="col-md-4">
+      <div class="form-group">
+          <label>Nombre: </label>
+          <input type="text" class="form-control" id="txtNombre" readonly="readonly" value="{{gasto.nombre}}" />
+      </div>
+  </div>
+  <div class="col-md-4">
+      <div class="form-group">
+          <label>Valor($): </label>
+          <input type="text" class="form-control" id="txtValor" readonly="readonly" value="{{gasto.valor | separadorMiles}}" />
+      </div>
+  </div>
+  <div class="col-md-4">
+      <div class="form-group">
+          <label>Fecha: </label>
+          <input type="text" class="form-control" id="txtFecha" readonly="readonly" value="{{gasto.fecha | date:'mediumDate'}}" />
+      </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+      <div class="form-group">
+          <label>Descripción: </label>
+          <input type="text" class="form-control" id="txtDescripcion" readonly="readonly" value="{{gasto.nombre}}" />
+      </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+      <div class="form-group">
+          <label>Tipo Periodicidad: </label>
+          <input type="text" class="form-control" id="txtTipoPeriodo" readonly="readonly" value="{{gasto.nombre}}" />
+      </div>
+  </div>
+  <div class="col-md-6">
+      <div class="form-group">
+          <label>Tipo de Gasto: </label>
+          <input type="text" class="form-control" id="txtTipoGasto" readonly="readonly" value="{{gasto.valor}}" />
+      </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+      <div class="form-group">
+          <label>Pagado: </label>
+          <input type="text" class="form-control" id="txtPagado" readonly="readonly" value="{{gasto.pagado | verdaderoFalso}}" />
+      </div>
+  </div>
+  <div class="col-md-4">
+      <div class="form-group">
+          <label>Repite: </label>
+          <input type="text" class="form-control" id="txtRepite" readonly="readonly" value="{{gasto.pagado | verdaderoFalso}}" />
+      </div>
+  </div>
+  <div class="col-md-4">
+      <div class="form-group">
+          <label>Forma de Pago: </label>
+          <input type="text" class="form-control" id="txtFormaPago" readonly="readonly" value="{{gasto.fecha}}" />
+      </div>
+  </div>
 </div>

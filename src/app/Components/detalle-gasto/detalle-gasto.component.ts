@@ -11,12 +11,21 @@ import { TabsComponent } from '../tabs/tabs.component';
   styleUrls: ['./detalle-gasto.component.css']
 })
 export class DetalleGastoComponent implements OnInit {
+  gasto:any=this.data.gasto;
 
   constructor(public dialogRef: MatDialogRef<TabsComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
     
+  }
+
+  pagado(pagado) {
+    if (pagado) {
+      return 'Si';
+    } else {
+      return 'No';
+    }
   }
 
   closeModal(): void {

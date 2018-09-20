@@ -30,7 +30,7 @@
                 </td>
                 <td *ngIf="gastoFijo">{{gastoFijo.nombre}}</td>
                 <td *ngIf="gastoFijo">{{gastoFijo.fecha | date:'mediumDate'}}</td>
-                <td *ngIf="gastoFijo">${{gastoFijo.valor}}</td>
+                <td *ngIf="gastoFijo">${{gastoFijo.valor | separadorMiles}}</td>
                 <td *ngIf="gastoFijo">
                     <div *ngIf="gastoFijo" class="dropdown">
                         <button [disabled]="gastoFijo.pagado" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"

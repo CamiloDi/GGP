@@ -30,6 +30,8 @@ import { MenuSuperiorComponent } from './components/menu-superior/menu-superior.
 import { registerLocaleData } from '../../node_modules/@angular/common';
 import { ProblemaComponent } from './Components/problema/problema.component';
 import { DetalleGastoComponent } from './Components/detalle-gasto/detalle-gasto.component';
+import { VerdaderoFalsoPipe } from './Pipes/verdadero-falso.pipe';
+import { SeparadorMilesPipe } from './Pipes/separador-miles.pipe';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { DetalleGastoComponent } from './Components/detalle-gasto/detalle-gasto.
     SinfotoPipe,
     FechaLocalPipe,
     ProblemaComponent,
-    DetalleGastoComponent
+    DetalleGastoComponent,
+    VerdaderoFalsoPipe,
+    SeparadorMilesPipe
   ],
   entryComponents: [DetalleGastoComponent],
   imports: [
