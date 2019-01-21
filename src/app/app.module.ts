@@ -10,16 +10,20 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
+
+//routes
 import { app_routing } from "./routes";
 
 //pipes
 import { SinfotoPipe } from './pipes/sinfoto.pipe';
 import { FechaLocalPipe } from './pipes/fechalocal.pipe';
+
 //Services
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { GastosFijosService } from './services/gastosFijos.service';
 
+//Components
 import { AppComponent } from './app.component';
 import { SesionComponent } from './Components/sesion/sesion.component';
 import { TabsComponent } from './Components/tabs/tabs.component';
@@ -34,7 +38,8 @@ import { VerdaderoFalsoPipe } from './Pipes/verdadero-falso.pipe';
 import { SeparadorMilesPipe } from './Pipes/separador-miles.pipe';
 
 @NgModule({
-  declarations: [
+  declarations:
+  [
     AppComponent,
     SesionComponent,
     TabsComponent,
@@ -42,25 +47,26 @@ import { SeparadorMilesPipe } from './Pipes/separador-miles.pipe';
     HomeComponent,
     DatosGeneralesComponent,
     MenuSuperiorComponent,
-    SinfotoPipe,
-    FechaLocalPipe,
     ProblemaComponent,
     DetalleGastoComponent,
+    SinfotoPipe,
+    FechaLocalPipe,
     VerdaderoFalsoPipe,
     SeparadorMilesPipe
   ],
   entryComponents: [DetalleGastoComponent],
-  imports: [
+  imports:
+  [
     BrowserModule,
     FormsModule,
     HttpModule,
     HttpClientModule,
     app_routing,
-    MatDialogModule,
-    BrowserAnimationsModule
-    
+    MatDialogModule
+    ,BrowserAnimationsModule
   ],
-  providers: [AuthService,AuthGuardService,GastosFijosService,{provide: LOCALE_ID, useValue: 'es-CL'}],
+  providers: [AuthService,AuthGuardService,GastosFijosService,{provide: LOCALE_ID, useValue: 'es-CL'},
+              ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

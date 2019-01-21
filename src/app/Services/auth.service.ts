@@ -15,7 +15,7 @@ export class AuthService {
     domain: 'cursoudemydevelop.auth0.com',
     responseType: 'token id_token',
     audience: 'https://cursoudemydevelop.auth0.com/userinfo',
-    redirectUri: 'http://localhost:4200/callback',
+    redirectUri: 'http://localhost:1234/callback',
     scope: 'openid profile'
   });
 

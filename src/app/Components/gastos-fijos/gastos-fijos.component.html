@@ -1,7 +1,4 @@
 <div class="main-container">
-    <a class="btn btn-outline-success btn-circle-sm" alt="Agregar Gasto!" tabindex="-1" role="button">
-        <i class="material-icons">add_circle</i>
-    </a>
 </div>
 <div class="container table-responsive">
     <table class="table table-bordered table-hover">
@@ -11,16 +8,13 @@
                 <th scope="col">Nombre</th>
                 <th scope="col">Fecha</th>
                 <th scope="col">Valor ($)</th>
-                <th scope="col"><div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
-                            Qué Desea Hacer?
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="javascript:void(0)"  (click)="PagarTodo(listaGastosFijos);">Pagar Todo</a>
-                            <a class="dropdown-item" href="javascript:void(0)" (click)="BorrarTodo();">Borrar Todo</a>
-                        </div>
-                    </div></th>
+                <th scope="col">
+                        <button type="button" (click)="PagarTodo(listaGastosFijos);" title="Pagar Todo" class="btn btn-success"><i class="fas fa-money-bill"></i></button>
+                        <div class="divider"></div>
+                        <button type="button" (click)="BorrarTodo();" title="Borrar Todo" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                        <div class="divider"></div>
+                        <button type="button" (click)="agregarGasto()" title="Agregar Gasto" class="btn btn-primary"><i class="fas fa-plus"></i></button>
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -32,20 +26,14 @@
                 <td *ngIf="gastoFijo">{{gastoFijo.fecha | date:'mediumDate'}}</td>
                 <td *ngIf="gastoFijo">${{gastoFijo.valor | separadorMiles}}</td>
                 <td *ngIf="gastoFijo">
-                    <div *ngIf="gastoFijo" class="dropdown">
-                        <button [disabled]="gastoFijo.pagado" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
-                            Qué Desea Hacer?
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="javascript:void(0)" (click)="Pagar(gastoFijo);">Pagar</a>
-                            <a class="dropdown-item" href="javascript:void(0)" (click)="Editar(gastoFijo);">Editar</a>
-                            <a class="dropdown-item" href="javascript:void(0)" (click)="Borrar(gastoFijo);">Borrar</a>
-                        </div>
-                    </div>
+                        <button type="button" (click)="Pagar(gastoFijo);" title="Pagar {{gastoFijo.nombre}}" class="btn btn-outline-success"><i class="fas fa-money-bill-alt"></i></button>
+                        <div class="divider"></div>
+                        <button type="button" (click)="Editar(gastoFijo);" title="Editar {{gastoFijo.nombre}}" class="btn btn-outline-primary"><i class="fas fa-edit"></i></button>
+                        <div class="divider"></div>
+                        <button type="button" (click)="Borrar(gastoFijo);" title="Borrar {{gastoFijo.nombre}}" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></button>
                 </td>
             </tr>
-            <tr *ngIf="listaGastosFijos.length==0">
+            <tr *ngIf="cantGastos==0">
                     <td class="text-center">
                         <h3>No posee ningun registro este mes</h3>
                     </td>

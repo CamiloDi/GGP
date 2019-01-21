@@ -1,7 +1,7 @@
 import { Component, OnInit,Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { GastosFijosComponent } from '../gastos-fijos/gastos-fijos.component';
-import { TabsComponent } from '../tabs/tabs.component';
+import {NgForm} from "@angular/forms";
 
 
 
@@ -12,13 +12,18 @@ import { TabsComponent } from '../tabs/tabs.component';
 })
 export class DetalleGastoComponent implements OnInit {
   gasto:any=this.data.gasto;
+  readOnly:boolean =this.data.campos;
 
-  constructor(public dialogRef: MatDialogRef<TabsComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: any) { }
+  constructor(public dialogRef: MatDialogRef<GastosFijosComponent>
+    ,@Inject(MAT_DIALOG_DATA) public data: any
+    ) { }
 
   ngOnInit() {
-    
+     if(!this.data.gasto){
+       this.gasto=this.data.gasto;
+     }
   }
+
 
   pagado(pagado) {
     if (pagado) {
@@ -31,5 +36,15 @@ export class DetalleGastoComponent implements OnInit {
   closeModal(): void {
     this.dialogRef.close();
     this.dialogRef=null;
+  }
+
+  edit(): void {
+    this.readOnly=false;
+  }
+
+  save(forma:NgForm): void {
+    console.log("ngForm:",forma);
+    console.log("Value:",forma.value);
+    this.readOnly=true;
   }
 }

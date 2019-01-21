@@ -1,4 +1,5 @@
- <div >
+<div mat-dialog-content>
+<div >
   <div class="divBotonCerrar" align="right">
       <a class="btn" (click)="closeModal()" role="button" >
         <i class="material-icons">clear</i>
@@ -6,31 +7,40 @@
   </div>
  
 </div> 
-<h2 class="text-center">Detalle Gasto {{data.gasto.nombre}}</h2>
+<h2 class="text-center">Detalle Gasto {{gasto.nombre}}</h2>
 <!-- <div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="basic-addon1">Nombre:</span>
   </div>
   <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" >
 </div> -->
+<div class="" align="center">
+<a  class="btn" *ngIf="this.readOnly" (click)="edit()" title="Editar" role="button" >
+    <i class="material-icons">edit</i>
+  </a>
+  <a  class="btn" *ngIf="!this.readOnly" (click)="save(forma)" title="Guardar" role="button" >
+    <i class="material-icons">save</i>
+  </a>
+</div>
 <hr/>
+<form #forma="ngForm">
 <div class="row">
   <div class="col-md-4">
       <div class="form-group">
           <label>Nombre: </label>
-          <input type="text" class="form-control" id="txtNombre" readonly="readonly" value="{{gasto.nombre}}" />
+          <input type="text" class="form-control" id="txtNombre" name="nombre" [readonly]="this.readOnly" value="{{gasto.nombre}}" />
       </div>
   </div>
   <div class="col-md-4">
       <div class="form-group">
           <label>Valor($): </label>
-          <input type="text" class="form-control" id="txtValor" readonly="readonly" value="{{gasto.valor | separadorMiles}}" />
+          <input type="text" class="form-control" id="txtValor" [readonly]="this.readOnly"[readonly]="this.readOnly" value="{{gasto.valor | separadorMiles}}" />
       </div>
   </div>
   <div class="col-md-4">
       <div class="form-group">
           <label>Fecha: </label>
-          <input type="text" class="form-control" id="txtFecha" readonly="readonly" value="{{gasto.fecha | date:'mediumDate'}}" />
+          <input type="text" class="form-control" id="txtFecha" [readonly]="this.readOnly"[readonly]="this.readOnly" value="{{gasto.fecha | date:'mediumDate'}}" />
       </div>
   </div>
 </div>
@@ -38,7 +48,7 @@
   <div class="col-md-12">
       <div class="form-group">
           <label>Descripción: </label>
-          <input type="text" class="form-control" id="txtDescripcion" readonly="readonly" value="{{gasto.nombre}}" />
+          <input type="text" class="form-control" id="txtDescripcion" [readonly]="this.readOnly"[readonly]="this.readOnly" value="{{gasto.nombre}}" />
       </div>
   </div>
 </div>
@@ -46,13 +56,13 @@
   <div class="col-md-6">
       <div class="form-group">
           <label>Tipo Periodicidad: </label>
-          <input type="text" class="form-control" id="txtTipoPeriodo" readonly="readonly" value="{{gasto.nombre}}" />
+          <input type="text" class="form-control" id="txtTipoPeriodo" [readonly]="this.readOnly" value="{{gasto.nombre}}" />
       </div>
   </div>
   <div class="col-md-6">
       <div class="form-group">
           <label>Tipo de Gasto: </label>
-          <input type="text" class="form-control" id="txtTipoGasto" readonly="readonly" value="{{gasto.valor}}" />
+          <input type="text" class="form-control" id="txtTipoGasto" [readonly]="this.readOnly" value="{{gasto.valor}}" />
       </div>
   </div>
 </div>
@@ -60,19 +70,21 @@
   <div class="col-md-4">
       <div class="form-group">
           <label>Pagado: </label>
-          <input type="text" class="form-control" id="txtPagado" readonly="readonly" value="{{gasto.pagado | verdaderoFalso}}" />
+          <input type="text" class="form-control" id="txtPagado" [readonly]="this.readOnly" value="{{gasto.pagado | verdaderoFalso}}" />
       </div>
   </div>
   <div class="col-md-4">
       <div class="form-group">
           <label>Repite: </label>
-          <input type="text" class="form-control" id="txtRepite" readonly="readonly" value="{{gasto.pagado | verdaderoFalso}}" />
+          <input type="text" class="form-control" id="txtRepite" [readonly]="this.readOnly" value="{{gasto.pagado | verdaderoFalso}}" />
       </div>
   </div>
   <div class="col-md-4">
       <div class="form-group">
           <label>Forma de Pago: </label>
-          <input type="text" class="form-control" id="txtFormaPago" readonly="readonly" value="{{gasto.fecha}}" />
+          <input type="text" class="form-control" id="txtFormaPago" [readonly]="this.readOnly" value="{{gasto.fecha}}" />
       </div>
   </div>
+</div>
+</form>
 </div>
